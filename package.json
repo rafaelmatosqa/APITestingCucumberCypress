@@ -1,0 +1,48 @@
+{
+  "name": "apitestingcucumbercypress",
+  "version": "1.0.0",
+  "description": "API Testing with cucumber and cypress",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "cypress open",
+    "test": "cypress run --spec \"**/*.feature\"",
+    "cucumber": "./node_modules/.bin/cypress-tags run -e",
+    "cy:report": "cypress run --spec \"**/*.feature\" && node cypress/support/report.js",
+    "start-jenkins-server":"java -jar jenkins.war --httpPort=8080 --enable-future-java"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafaelmatosqa/APITestingCucumberCypress.git"
+  },
+  "keywords": [
+    "cucumberjs",
+    "api",
+    "testing",
+    "cypress"
+  ],
+  "author": "Rafael Matos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rafaelmatosqa/APITestingCucumberCypress/issues"
+  },
+  "homepage": "https://github.com/rafaelmatosqa/APITestingCucumberCypress#readme",
+  "dependencies": {
+    "cucumber-html-reporter": "^5.3.0",
+    "cypress": "^6.8.0",
+    "cypress-cucumber-preprocessor": "^4.0.1",
+    "cypress-plugin-tab": "^1.0.5",
+    "fs": "0.0.1-security",
+    "fs-extra": "^9.1.0",
+    "jsonschema": "^1.4.0"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": false,
+    "stepDefinitions": "cypress/integration/",
+    "cucumberJson": {
+      "generate": true,
+      "outputFolder": "cucumber_report",
+      "filePrefix": "",
+      "fileSuffix": ".cucumber"
+    }
+  }
+}
